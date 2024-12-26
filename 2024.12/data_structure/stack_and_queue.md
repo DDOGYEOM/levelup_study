@@ -80,45 +80,180 @@
 
 ### 예제
 
-JAVA에는 stack이 구현된 구현체가 있지만 구조를 이해해보기 위해 두가지 방법으로 직접 구현해보도록 하겠습니다.   
+JAVA에는 stack이 구현된 구현체가 있지만 구조를 이해해보기 위해 두가지 방법으로 직접 구현해보도록 하겠습니다.
 
 #### 배열로 구현해보기
 
-``` JAVA
+```JAVA
+class ArrayStack<T> {
+    int top; // 인덱스
+    int size; // 스택 배열의 크기
+    Object[] stack;
+
+    public ArrayStack(int size) {
+        this.size = size;
+        stack = new Object[size];
+        top = -1;
+    }
+
+    public void push(T item) {
+        stack[++top] = item;
+    }
+
+    public Object pop() {
+        Object pop = stack[top];
+        stack[top--] = null;
+
+        return pop;
+    }
+
+    public Object peek() {
+        return stack[top];
+
+    }
+
+    public int size() {
+        int itemSize = top + 1;
+
+        return itemSize;
+    }
+}
+
+
+public class ArrayStackTest {
+    public static void main(String[] args) {
+        ArrayStack<Integer> arrStack = new ArrayStack<Integer>(5); // 크기가 5인 정수형 스택 선언
+
+        arrStack.push(1);
+        arrStack.push(2);
+        arrStack.push(3);
+        arrStack.push(4);
+        arrStack.push(5);
+
+
+        System.out.println(arrStack.pop() + " Pop!");
+        System.out.println(arrStack.peek() + " Peek!");
+        System.out.println(arrStack.pop() + " Pop!");
+        System.out.println(arrStack.pop() + " Pop!");
+
+        System.out.println("stack item size : " + arrStack.size());
+    }
+}
+
 ```
 
 #### 연결리스트로 구현해보기
 
-``` JAVA
+```JAVA
+class Node<T> {
+    private T item;
+    private Node<T> node;
+
+    public Node(T item) {
+        this.item = item;
+        this.node = null;
+    }
+
+    protected void linkNode(Node<T> node) {// 가르킬 노드를 지정
+        this.node = node;
+    }
+
+    protected T getData() {
+        return this.item;
+    }
+
+    protected Node<T> getNextNode() { // 다음 노드를 리턴
+        return this.node;
+    }
+}
+
+
+// LinkedListStack을 관리하는 클래스
+class StackNodeManager<T> {
+    Node<T> top; // 가장 최근에 들어온 노드를 가리킴
+    int size = 0;
+
+    public StackNodeManager() {
+        this.top = null;
+    }
+
+    public void push(T data) {
+        Node<T> node = new Node<T>(data); // 노드를 생성
+        node.linkNode(top); // 새로 생성된 노드가 top이 가르키고 있는 노드를 링크로 연결하게 함
+        top = node; // top의 값을 가장 최근에 생성된 node로 바꿈
+        size++;
+    }
+
+    public T pop() {
+        T data = top.getData();
+        top = top.getNextNode(); // 현재 top이 가리키고 있는 노드를 가리키게 함
+        size--;
+        return data;
+    }
+
+    public T peek() {
+        return top.getData();
+    }
+
+
+    public int size() {
+        return size;
+    }
+}
+
+
+public class LinkedListStackTest {
+    public static void main(String[] args) {
+        StackNodeManager<Integer> linkedListStack = new StackNodeManager<Integer>();
+
+        linkedListStack.push(1);
+        linkedListStack.push(2);
+        linkedListStack.push(3);
+        linkedListStack.push(4);
+        linkedListStack.push(5);
+
+        System.out.println(linkedListStack.pop() + " Pop!");
+        System.out.println(linkedListStack.pop() + " Pop!");
+        System.out.println(linkedListStack.pop() + " Pop!");
+
+        System.out.println(linkedListStack.peek() + " Peek!");
+
+        System.out.println("stack item size : " + linkedListStack.size());
+    }
+}
+
 ```
+
+<br>
 
 ## 2. 큐 (Queue)
 
 ### 개념 및 특징
 
-  ![queue_이미지_1](./images/queue_img_1.png)
-  
-  **Queue**의 사전적 의미는 줄을 서서 기다리는 것을 의미합니다.   
-  스택이 쌓아놓은 블럭같다면 큐는 입구와 출구가 있는 통로같은 형태를 가지고 있는데,
-  이와 같이 <b>데이터를 하나하나씩 순서대로 줄을 세우고 차례대로 빠지는 형태의 자료구조</b>를 말합니다.
+![queue_이미지_1](./images/queue_img_1.png)
 
-  큐는 스택과 달리 한쪽 끝에서 삽입 작업이, 다른 쪽 끝에서 삭제 작업이 양쪽으로 이루어집니다.
-  이때 삭제연산만 수행하는 곳을 <b>front</b>, 삽입 연산만 이루어지는 곳을 
-  <b>rear</b>로 정하여 각각의 연산작업만이 수행됨으로써 rear에서 이루어지는 삽입연산을 <b>인큐(enQueue)</b>, 프론트에서 이루어지는 삭제연산을 <b>디큐(dnQueue)</b>라고 부릅니다.   
-  접근 방법은 가장 첫 원소와 끝 원소로만 가능하고 가장 먼저 들어온 front 원소가 가장 먼저 삭제됩니다. 
+**Queue**의 사전적 의미는 줄을 서서 기다리는 것을 의미합니다.  
+ 스택이 쌓아놓은 블럭같다면 큐는 입구와 출구가 있는 통로같은 형태를 가지고 있는데,
+이와 같이 <b>데이터를 하나하나씩 순서대로 줄을 세우고 차례대로 빠지는 형태의 자료구조</b>를 말합니다.
 
-   ![queue_연산_이미지_1](./images/queue_add_delete.png)
-  
-  연산을 진행하게 되면 ***먼저 삽입된 자료가 가장 먼저 삭제된다.***는 구조적 특징을 가지게 되고, 이러한 구조를 <b>선입선출(FIFO, First-In-First-Out) 구조</b>라고 합니다.
+큐는 스택과 달리 한쪽 끝에서 삽입 작업이, 다른 쪽 끝에서 삭제 작업이 양쪽으로 이루어집니다.
+이때 삭제연산만 수행하는 곳을 <b>front</b>, 삽입 연산만 이루어지는 곳을
+<b>rear</b>로 정하여 각각의 연산작업만이 수행됨으로써 rear에서 이루어지는 삽입연산을 <b>인큐(enQueue)</b>, 프론트에서 이루어지는 삭제연산을 <b>디큐(dnQueue)</b>라고 부릅니다.  
+ 접근 방법은 가장 첫 원소와 끝 원소로만 가능하고 가장 먼저 들어온 front 원소가 가장 먼저 삭제됩니다.
 
-  이러한 구조적 특징을 가진 큐는 아래와 같은 분야에서 활용 가능합니다.
-  - 메모리의 일부 영역
-  - 우선순위가 같은 작업 예약
-  - 은행 업무
-  - 프로세스 관리
-  - 너비 우선 탐색
-  - 캐시(Cache) 구현
-  
+![queue_연산_이미지_1](./images/queue_add_delete.png)
+
+연산을 진행하게 되면 **_먼저 삽입된 자료가 가장 먼저 삭제된다._**는 구조적 특징을 가지게 되고, 이러한 구조를 <b>선입선출(FIFO, First-In-First-Out) 구조</b>라고 합니다.
+
+이러한 구조적 특징을 가진 큐는 아래와 같은 분야에서 활용 가능합니다.
+
+- 메모리의 일부 영역
+- 우선순위가 같은 작업 예약
+- 은행 업무
+- 프로세스 관리
+- 너비 우선 탐색
+- 캐시(Cache) 구현
+
 <br>
 
 ### 장점 및 단점
@@ -137,16 +272,206 @@ JAVA에는 stack이 구현된 구현체가 있지만 구조를 이해해보기 �
 
 ### 예제
 
-Queue도 마찬가지로 JAVA에는 구현체가 있지만 Stack과 동일하게 직접 구현해보도록 하겠습니다.   
+Queue도 마찬가지로 JAVA에는 구현체가 있지만 Stack과 동일하게 직접 구현해보도록 하겠습니다.
 
 #### 배열로 구현해보기
 
-``` JAVA
+```JAVA
+
+class ArrayQueue<T> {
+    int MAX = 6;
+    int front; // 머리 쪽에 위치할 index값, pop할때 참조하는 index
+    int rear; // 꼬리 쪽에 위치할 index값, push할때 참조하는 index
+    Object[] queue;
+
+    public ArrayQueue() {
+        front = rear = 0; // 초기값 0
+        queue = new Object[MAX]; // 배열 생성
+    }
+
+    public boolean queueisEmpty() { // queue에 아무것도 들어있지 않은지 판단하는 함수
+        return front == rear;
+    }
+
+    public boolean queueisFull() { // queue가 가득 차 공간이 없는지 판단하는 함수
+        if (rear == MAX - 1) {
+            return true;
+        } else
+            return false;
+    }
+
+    public int size() { // queue에 현재 들어가 있는 데이터의 개수를 return
+        return rear - front;
+    }
+
+    public void push(T value) {
+        if (queueisFull()) {
+            System.out.println("Queue is Full");
+            return;
+        }
+        queue[rear++] = value; // rear가 위치한 곳에 값을 넣어주고 rear를 증가시킨다.
+    }
+
+    public Object pop() {
+        if (queueisEmpty()) {
+            System.out.println("Queue is Empty");
+            return -1;
+        }
+        Object popValue = queue[front++];
+        return popValue;
+    }
+
+    public Object peek() {
+        if (queueisEmpty()) {
+            System.out.println("Queue is Empty");
+            return -1;
+        }
+        Object popValue = queue[front];
+        return popValue;
+    }
+}
+
+
+public class ArrayQueueTest {
+    public static void main(String[] args) {
+        ArrayQueue<Integer> arrQueue = new ArrayQueue<Integer>();
+
+        arrQueue.push(1);
+        arrQueue.push(2);
+        arrQueue.push(3);
+        arrQueue.push(4);
+        arrQueue.push(5);
+
+        System.out.println("queue isFull : " + arrQueue.queueisFull());
+
+        System.out.println(arrQueue.pop() + " Pop!");
+        System.out.println(arrQueue.pop() + " Pop!");
+        System.out.println(arrQueue.pop() + " Pop!");
+
+        System.out.println(arrQueue.peek() + " Peek!");
+
+        System.out.println(arrQueue.pop() + " Pop!");
+        System.out.println(arrQueue.pop() + " Pop!");
+
+        System.out.println("queue item size : " + arrQueue.size());
+        System.out.println("queue isEmpty : " + arrQueue.queueisEmpty());
+    }
+}
+
 ```
 
 #### 연결리스트로 구현해보기
 
-``` JAVA
+```JAVA
+class QueueNode<T> {
+    T value; // 값을 넣음
+    QueueNode<T> queueNode; // 다음 노드를 가리킴
+
+    public QueueNode(T value) {
+        this.value = value;
+        queueNode = null;
+    }
+
+    public T getValue() {
+        return value;
+    }
+
+    public QueueNode<T> getNextNode() {
+        return queueNode;
+    }
+
+    public void setNextNode(QueueNode<T> queueNode) {
+        this.queueNode = queueNode;
+    }
+}
+
+
+class QueueNodeManager<T> { // 큐의 기능을 만들 클래스
+    QueueNode<T> front, rear;
+
+    public QueueNodeManager() {
+        front = rear = null;
+    }
+
+    public boolean queueIsEmpty() {
+        if (front == null && rear == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void push(T value) {
+        QueueNode<T> queueNode = new QueueNode<T>(value);
+        if (queueIsEmpty()) { // 큐안에 데이터가 없으면 첫번째 Node에 front와 rear를 연결
+            front = rear = queueNode;
+        } else {
+            front.setNextNode(queueNode); // 큐 안에 데이터가 있으면 front를 다음 노드에 연결 후 front의 값을 마지막 노드로 삽입
+            front = queueNode;
+        }
+    }
+
+    public T pop() {
+        if (queueIsEmpty()) {
+            System.out.println("Queue is Empty");
+            return null;
+        } else {
+            QueueNode<T> popNode = rear;
+            rear = rear.getNextNode();
+            return popNode.getValue();
+        }
+    }
+
+    public T peek() {
+        if (queueIsEmpty()) {
+            System.out.println("Queue is Empty");
+            return null;
+        } else {
+            return rear.getValue();
+        }
+    }
+
+    public int size() {
+        QueueNode<T> front2 = front;
+        QueueNode<T> rear2 = rear;
+        int count = 0;
+        while (front2 != rear2 && rear2 != null) { // 큐가 비어있는 경우가 있을수도 있을때도 생각해야함
+            count++;
+            rear2 = rear2.getNextNode();
+        }
+
+        // 마지막 큐 개수까지 계산해야함
+        if (front2 == rear2) {
+            count++;
+        }
+
+        return count;
+    }
+}
+
+
+public class LinkedListQueueTest {
+    public static void main(String[] args) {
+        QueueNodeManager<Integer> linkedListQueue = new QueueNodeManager<Integer>();
+
+        linkedListQueue.push(1);
+        linkedListQueue.push(2);
+        linkedListQueue.push(3);
+        linkedListQueue.push(4);
+        linkedListQueue.push(5);
+
+        System.out.println("queue item size : " + linkedListQueue.size());
+
+        System.out.println(linkedListQueue.pop() + " Pop!");
+        System.out.println(linkedListQueue.pop() + " Pop!");
+        System.out.println(linkedListQueue.pop() + " Pop!");
+
+        System.out.println(linkedListQueue.peek() + " Peek!");
+
+        System.out.println("queue item size : " + linkedListQueue.size());
+    }
+}
+
 ```
 
 <br>
