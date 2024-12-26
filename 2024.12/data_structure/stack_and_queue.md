@@ -56,11 +56,7 @@
   > <br>
   > <b> 후위표기법 연산 과정 </b> <br>
   > <br>
-  > 1. 피연산자는 그냥 쓰고 연산자를 만나면 Stack에 push <br>
-  > 2. 연산자를 만났는데 stack이 비어있지 않으면 stack의 마지막 연산자와 우선순위를 비교 <br>
-  > 3. stack에 있는 연산자의 우선순위가 높으면 pop으로 연산자 빼내기 <br>
-  > 4. 남은 연산자는 stack에 push <br>
-  > 5. 수식에 끝까지 왔으면 스택에 남아 있는 원소를 모두 pop <br>
+  > <img src = "./images/stack_postfix.png" /> <br>
   > <br>
 
 <br>
