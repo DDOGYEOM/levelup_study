@@ -292,7 +292,7 @@ public class LinkedListStackTest {
 
 ### 예제
 
-Queue도 마찬가지로 JAVA에는 구현체가 있지만 Stack과 동일하게 직접 구현해보도록 하겠습니다. (편의상 enqueue, Dequeue대신 push와 pop으로 구현하였습니다. )
+Queue도 마찬가지로 JAVA에는 구현체가 있지만 Stack과 동일하게 직접 구현해보도록 하겠습니다. (편의상 enqueue, dnQueue대신 push와 pop으로 구현하였습니다.)
 
 #### 배열로 구현해보기
 
