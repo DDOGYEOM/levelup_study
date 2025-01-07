@@ -235,12 +235,12 @@ public class LinkedListStackTest {
 
 큐는 스택과 달리 한쪽 끝에서 삽입 작업이, 다른 쪽 끝에서 삭제 작업이 양쪽으로 이루어집니다.
 이때 삭제연산만 수행하는 곳을 <b>front</b>, 삽입 연산만 이루어지는 곳을
-<b>rear</b>로 정하여 각각의 연산작업만이 수행됨으로써 rear에서 이루어지는 삽입연산을 <b>인큐(enQueue)</b>, 프론트에서 이루어지는 삭제연산을 <b>디큐(dnQueue)</b>라고 부릅니다.  
+<b>rear</b>로 정하여 각각의 연산작업만이 수행됨으로써 rear에서 이루어지는 삽입연산을 <b>인큐(enQueue)</b>, 프론트에서 이루어지는 삭제연산을 <b>디큐(dequeue)</b>라고 부릅니다.  
  접근 방법은 가장 첫 원소와 끝 원소로만 가능하고 가장 먼저 들어온 front 원소가 가장 먼저 삭제됩니다.
 
 ![queue_연산_이미지_1](./images/queue_add_delete.png)
 
-연산을 진행하게 되면 **_먼저 삽입된 자료가 가장 먼저 삭제된다._**는 구조적 특징을 가지게 되고, 이러한 구조를 <b>선입선출(FIFO, First-In-First-Out) 구조</b>라고 합니다.
+연산을 진행하게 되면 <b>먼저 삽입된 자료가 가장 먼저 삭제된다.</b>는 구조적 특징을 가지게 되고, 이러한 구조를 <b>선입선출(FIFO, First-In-First-Out) 구조</b>라고 합니다.
 
 이러한 구조적 특징을 가진 큐는 아래와 같은 분야에서 활용 가능합니다.
 
@@ -292,7 +292,7 @@ public class LinkedListStackTest {
 
 ### 예제
 
-Queue도 마찬가지로 JAVA에는 구현체가 있지만 Stack과 동일하게 직접 구현해보도록 하겠습니다. (편의상 enqueue, dnQueue대신 push와 pop으로 구현하였습니다.)
+Queue도 마찬가지로 JAVA에는 구현체가 있지만 Stack과 동일하게 직접 구현해보도록 하겠습니다. (편의상 enqueue, dequeue대신 push와 pop으로 구현하였습니다.)
 
 #### 배열로 구현해보기
 
