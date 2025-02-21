@@ -45,8 +45,8 @@
  &nbsp;&nbsp; 3.
 
 &nbsp; **단점**  
- &nbsp;&nbsp; 1.
-&nbsp;&nbsp; 2.
+ &nbsp;&nbsp; 1. 중간 요소 접근은 여전히 비효율적이다.
+&nbsp;&nbsp; 2. 연결 리스트 기반 덱
 &nbsp;&nbsp; 3.
 
 ## 2. 해시 테이블(Hash Table)
