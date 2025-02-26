@@ -49,7 +49,7 @@
 덱의 연산은 크게 두 가지로 삽입 연산과 삭제 연산이 존재하지만
 조금 더 세분화하자면 front와 rear에서 삽입, 삭제가 가능하기 때문에 네 가지라고 보시면 되겠습니다.
 
-![덱_이미지](./images/deque_calculation.png)
+![덱_연산과정_이미지](./images/deque_calculation.png)
 
 - add_front: 덱의 맨 앞에 요소를 추가한다.
 - add_rear: 덱의 맨 뒤에 요소를 추가한다.
@@ -134,8 +134,18 @@ index의 구조가 꼬이게 되면서 덱이 손상되면 배열이 꽉 차지 
 - 캐시 시스템 -> 고정된 크기의 메모리에서 최근 사용된 데이터를 관리함.
 - 교통 관제 시스템 -> 차량이 일정한 규칙으로 이동하는 시스템.
 
-<b> 연산 과정 </b>  
+<br>
+
+<b> 연산 과정 </b>
+
+![원형덱_연산과정_이미지](./images/circular_deque_calculation.png)
+
 전체적인 구조와 핵심 연산 과정은 원형 큐와 거의 동일하며, front와 rear에서 동시에 삽입/삭제 연산이 이루어지기만 하면 됩니다.
+
+> <b>add_front:</b> 꽉찼는지 확인 후 front 자리에 삽입 후 front=(front-1+ 크기) % 크기  
+> <b>add_rear:</b> 꽉찼는지 확인 후 원형 큐의 enqueue와 동일  
+> <b>delete_front:</b> 원형큐의 dequeue와 동일  
+> <b>delelte_rear:</b> 현재 rear자리의 값 임시 저장 후 rear=(rear-1+ 크기) % 크기 연산 후 임시 저장했던 rear자리 값 반환
 
 <br>
 
