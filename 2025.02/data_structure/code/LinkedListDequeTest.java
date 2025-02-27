@@ -39,6 +39,7 @@ class LinkedListDeque<T> {
         size++;
     }
 
+    // 덱의 뒤에 삽입
     public void insertRear(T item) {
         Node<T> newNode = new Node<T>(item);
         if (rear == null) {
@@ -55,6 +56,7 @@ class LinkedListDeque<T> {
         size++;
     }
 
+    // 덱의 앞에서 삭제
     public T popFront() {
         if (front == null) {
             throw new IllegalStateException("Deque is empty!");
@@ -74,6 +76,7 @@ class LinkedListDeque<T> {
         return data;
     }
 
+    // 덱의 뒤에서 삭제
     public T popRear() {
         if (rear == null) {
             throw new IllegalStateException("Deque is empty!");
@@ -130,7 +133,7 @@ class LinkedListDeque<T> {
 
 public class LinkedListDequeTest {
     public static void main(String[] args) {
-        LinkedListDeque<Integer> deque = new LinkedListDeque();
+        LinkedListDeque<Integer> deque = new LinkedListDeque<Integer>();
 
         deque.insertFront(10);
         deque.insertRear(20);

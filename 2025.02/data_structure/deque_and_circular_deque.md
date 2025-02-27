@@ -213,7 +213,7 @@ class LinkedListDeque<T> {
 
 public class LinkedListDequeTest {
     public static void main(String[] args) {
-        LinkedListDeque<Integer> deque = new LinkedListDeque();
+        LinkedListDeque<Integer> deque = new LinkedListDeque<Integer>();
 
         deque.insertFront(10);
         deque.insertRear(20);
