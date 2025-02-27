@@ -34,6 +34,8 @@ class LinkedListDeque<T> {
             front = newNode;
         }
 
+        System.out.println("insert front --> " + item);
+
         size++;
     }
 
@@ -47,6 +49,8 @@ class LinkedListDeque<T> {
             rear.next = newNode;
             rear = newNode;
         }
+
+        System.out.println("insert rear --> " + item);
 
         size++;
     }
@@ -136,8 +140,8 @@ public class LinkedListDequeTest {
 
         System.out.println(deque.toString());
 
-        deque.popFront();
-        deque.popRear();
+        System.out.println("pop front --> " + deque.popFront());
+        System.out.println("pop rear --> " + deque.popRear());
 
         System.out.println(deque.toString());
     }

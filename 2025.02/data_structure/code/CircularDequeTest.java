@@ -30,8 +30,10 @@ class CircularDeque {
             front = 0;
             rear = 0;
         } else {
-            front = (front - 1 + size) % size;
+            front = (front - 1 + size) % size; // 현재 front index를 기준으로 한 칸 앞 index로 설정
         }
+
+        System.out.println("insert front --> " + value);
 
         deque[front] = value;
     }
@@ -50,9 +52,11 @@ class CircularDeque {
             rear = (rear + 1) % size;
         }
 
+        System.out.println("insert rear --> " + value);
         deque[rear] = value;
     }
 
+    // 앞에서 삭제
     public void popFront() {
         if (isEmpty()) {
             System.out.println("덱이 비어 있습니다.");
@@ -78,14 +82,16 @@ class CircularDeque {
             return;
         }
 
-        System.out.println("pop rear --> " + deque[rear]);
+
         deque[rear] = null;
+
+        System.out.println("pop rear --> " + deque[rear]);
 
         if (front == rear) { // 마지막 요소 삭제
             front = -1;
             rear = -1;
         } else {
-            rear = (rear - 1 + size) % size;
+            rear = (rear - 1 + size) % size; // 현재 rear index를 기준으로 한 칸 뒤 index를 설정
         }
 
     }
@@ -124,6 +130,8 @@ public class CircularDequeTest {
 
         deque.insertRear(60);
 
+        System.out.println(deque.toString());
+
         deque.popFront();
         deque.popFront();
         deque.popFront();
@@ -132,9 +140,6 @@ public class CircularDequeTest {
 
         deque.popRear();
 
-
-
         System.out.println(deque.toString());
-
     }
 }
