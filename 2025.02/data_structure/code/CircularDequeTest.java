@@ -135,8 +135,6 @@ public class CircularDequeTest {
         deque.popFront();
         deque.popFront();
         deque.popFront();
-        deque.popFront();
-        deque.popFront();
 
         deque.popRear();
 
