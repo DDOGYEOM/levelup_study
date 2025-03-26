@@ -76,6 +76,15 @@ public class HashTableExample {
 
 public class HashTableTest {
     public static void main(String[] args) {
+        HashTable<String, Integer> hashTable = new HashTable<>(10);
+        hashTable.put("apple", 10);
+        hashTable.put("banana", 20);
+        hashTable.put("orange", 30);
 
+        System.out.println("apple: " + hashTable.get("apple")); // 10
+        System.out.println("banana: " + hashTable.get("banana")); // 20
+
+        hashTable.remove("banana");
+        System.out.println("banana: " + hashTable.get("banana")); // null
     }
 }
