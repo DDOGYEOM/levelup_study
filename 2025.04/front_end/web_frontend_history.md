@@ -158,6 +158,8 @@ Windows가 대중화되고, IE가 기본 탑재가 되면서 홈페이지가 모
 
 ## - Google의 프로젝트
 
+![v8_engine](./images/v8_engine.png) ![chrome](./images/chrome.jpg)
+
 2000년대 중반, 구글에선 Gmail, Google Maps 같은 혁신적인 웹 앱을 내세웠습니다.  
 하지만 당시 주류 브라우저는 IE, Firefox, Safari였고, 이 브라우저들의 엔진으로는 JavaScript를 빠르게 실행할 수 없었을 뿐더러 비효율적인 렌더링 구조를 가져 Google은 자사 서비스를 위해 큰 결심을 합니다.
 
