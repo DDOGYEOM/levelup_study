@@ -20,7 +20,7 @@ ORM 개념을 설명하기 위해선 먼저 데이터의 특성 중 하나인 **
 
 ### ✏️ 개념
 
-ORM은 객체 지향 프로그래밍 언어를 사용하여 호환되지 않는 유형의 시스템 간에 데이터를 변환하는 프로그래밍 기술입니다.
+<b>ORM(Object Relational Mapping)</b>은 객체 지향 프로그래밍 언어를 사용하여 호환되지 않는 유형의 시스템 간에 데이터를 변환하는 프로그래밍 기술입니다.
 
 ![orm_mapping](./images/orm_mapping.png)
 
@@ -280,7 +280,6 @@ remove는 Entity를 삭제하는 역할을 합니다.
 ### 6. Flush -> Commit
 
 ```java
-
 tx.commit(); // flush → SQL 생성 및 실행 → commit
 ```
 
