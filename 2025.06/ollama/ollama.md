@@ -163,6 +163,11 @@ Ollama의 특징과 장단점을 알아보았으니 이제 Ollama의 기본 기�
    ![ollama_llm_run](./images/ollama_llm_run.png)  
    ![exaone_run_1](images/exaone_run_1.png)
 
+  위와 같이 Ollama를 활용하면 간단한 명령어 만으로 로컬 환경에서 LLM을 사용할 수 있습니다!
+
+- <b>LLM 종료 및 삭제</b>
+- <b>그 밖의 명령어</b>
+
 <br>
 
 ### 🖥️ 활용 방안
