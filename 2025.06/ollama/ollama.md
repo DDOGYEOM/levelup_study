@@ -144,9 +144,9 @@ Ollama의 특징과 장단점을 알아보았으니 이제 Ollama의 기본 기�
 
   > 설치 확인은 `localhost:11434` 에 접속하여 확인도 가능합니다.
 
-- <b>Ollama 자체 실행하기</b>
-  자 설치가 완료되었으니 이제 cmd에서 Ollama를 활용해 Local LLM을 install하여 실행해보도록 하겠습니다.  
-   먼저 사용할 Local LLM을 찾아봐야겠죠?
+- <b>Ollama 자체 실행하기</b>  
+  이제 설치가 완료되었으니 이제 cmd에서 Ollama를 활용해 Local LLM을 install하여 실행해보도록 하겠습니다.  
+  먼저 사용할 Local LLM을 찾아봐야겠죠?
 
   ![ollama_llm_search](./images/ollama_llm_search.png)  
    [https://ollama.com/search](https://ollama.com/search)에 접속하여 찾아본 후 마음에 드는 LLM을 선택합니다.
@@ -161,10 +161,10 @@ Ollama의 특징과 장단점을 알아보았으니 이제 Ollama의 기본 기�
 
   > 저는 LG에서 개발한 Local LLM인 Exaone 3.5를 사용해보았습니다.
 
-  설치가 완료되면 자동으로 실행이 되며 이제 gpt를 사용하는 것처럼 질문해보면 됩니다.
+  설치가 완료되면 자동으로 실행이 되며 이제 gpt를 사용하는 것처럼 질문해보면 됩니다. 🙂  
   ![ollama_llm_install_success](./images/ollama_llm_install_success.png)  
-  ![ollama_llm_run](./images/ollama_llm_run.png)  
-  ![exaone_run_1](images/exaone_run_1.png)
+   ![ollama_llm_run](./images/ollama_llm_run.png)  
+   ![exaone_run_1](images/exaone_run_1.png)
 
 <br>
 
