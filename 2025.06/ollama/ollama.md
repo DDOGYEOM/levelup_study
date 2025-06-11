@@ -151,10 +151,7 @@ Ollama의 특징과 장단점을 알아보았으니 이제 Ollama의 기본 기�
   ![ollama_llm_search](./images/ollama_llm_search.png)  
    [https://ollama.com/search](https://ollama.com/search)에 접속하여 찾아본 후 마음에 드는 LLM을 선택합니다.
 
-  실행하는 방법은 간단합니다. `ollama run [활용할 LLM]` 명령어를 입력하면 됩니다.
-
-  ![ollama_run](./images/ollama_run.png)
-
+  실행하는 방법은 간단합니다. `ollama run [활용할 LLM]` 명령어를 입력하면 됩니다.  
   만약 해당 모델이 이미 설치되어 있다면 실행이 될 것이고 설치가 되어 있지 않다면 아래 이미지와 같이 모델 설치를 진행합니다.
 
   ![ollama_llm_install](./images/ollama_llm_install.png)
