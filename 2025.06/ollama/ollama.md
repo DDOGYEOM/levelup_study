@@ -85,21 +85,21 @@ LLM 사용의 진입 장벽을 낮추고 개발자들이 쉽게 LLM을 활용할
 
 ### 🛠️ 핵심 특징 & 아키텍처
 
-**컨테이너 기반 아키텍처**
+<br>
+
+&nbsp; **컨테이너 기반 아키텍처**
 
 - LLM을 컨테이너 이미지로 관리
 - 모델, 의존성, 설정 등을 하나의 패키지로 묶어 배포
 - 격리된 환경에서 실행하여 안정성 확보
 
-**레이어링 시스템**
+&nbsp; **레이어링 시스템**
 
 - 기본 모델 위에 추가적인 레이어를 쌓아 커스터마이징
 - 프롬프트 템플릿, 시스템 메시지 등을 레이어로 관리
 - 재사용성 및 유지보수성 향상
 
-> <b>Ollamafile</b>을 활용하여 기본 LLM에 다양한 기능을 추가하여 커스터마이징한 모델을 정의할 수 있습니다.
-
-**API 서버**
+&nbsp; **API 서버**
 
 - Local LLM을 API 형태로도 제공.
 - HTTP 엔드포인트를 통해 LLM 기능 사용 \* 다양한 프로그래밍 언어에서 LLM 활용 가능
@@ -121,12 +121,14 @@ LLM 사용의 진입 장벽을 낮추고 개발자들이 쉽게 LLM을 활용할
 - **모델 크기 제한:** GPU 메모리 크기에 따라 사용 가능한 모델 크기 제한
 - **초기 모델 다운로드 시간:** 모델 크기가 클 경우 다운로드 시간 소요
 
+<br>
+
 ### ⚙️ 기본 사용법
 
 Ollama의 특징과 장단점을 알아보았으니 이제 Ollama의 기본 기능을 사용해보도록 하겠습니다.  
 (예시 이미지는 윈도우를 기준으로 하였습니다.)
 
-- Ollama 설치
+- <b>Ollama 설치</b>
   ![ollama_download](./images/ollama_download.png)  
   [https://ollama.com/download](https://ollama.com/download)에 접속하여 본인이 원하는 OS를 클릭한 후 다운로드받습니다.
 
@@ -142,7 +144,7 @@ Ollama의 특징과 장단점을 알아보았으니 이제 Ollama의 기본 기�
 
   > 설치 확인은 `localhost:11434` 에 접속하여 확인도 가능합니다.
 
-- Ollama 자체 실행하기
+- <b>Ollama 자체 실행하기</b>
   자 설치가 완료되었으니 이제 cmd에서 Ollama를 활용해 Local LLM을 install하여 실행해보도록 하겠습니다.  
    먼저 사용할 Local LLM을 찾아봐야겠죠?
 
@@ -163,6 +165,8 @@ Ollama의 특징과 장단점을 알아보았으니 이제 Ollama의 기본 기�
   ![ollama_llm_install_success](./images/ollama_llm_install_success.png)  
   ![ollama_llm_run](./images/ollama_llm_run.png)  
   ![exaone_run_1](images/exaone_run_1.png)
+
+<br>
 
 ### 🖥️ 활용 방안
 
