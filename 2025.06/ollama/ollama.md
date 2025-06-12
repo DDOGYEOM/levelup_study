@@ -19,10 +19,10 @@
 
 ![llm_brain](./images/llm_brain.jpg)
 
-LLM(Large Language Model)이란 방대한 양의 대규모 텍스트 데이터셋로 사전 학습된 초대형 딥러닝 모델입니다.  
+LLM(Large Language Model)이란 방대한 양의 대규모 텍스트 데이터셋으로 사전 학습된 초대형 딥러닝 모델입니다.  
 단순한 텍스트 생성, 번역, 요약, 질문 응답에서 나아가 최근엔 자율적으로 실시간 검색을 통해 이공계열 문제 및 상식 등을 추론해내는 기능도 해내고 있습니다.
 
-![llm_works](./images/llm_works.jpg)
+![llm_works](./images/llm_works.png)
 
 LLM은 입력 텍스트를 토큰화하여 벡터로 변환하고, Transformer 레이어를 통해 문맥적 의미를 파악하여, 다음에 올 토큰을 예측하는 방식으로 텍스트를 생성해 과정을 거쳐 데이터를 제공합니다.
 
