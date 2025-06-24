@@ -205,6 +205,44 @@ public class User {
 **@OneToOne - 1:1 관계 매핑**
 이번엔 좀 다른 예를 들어보도록 하겠습니다.
 
+한 사람은 하나의 여권을 가질 수 있습니다.  
+Person이라는 테이블과 Passport라는 테이블이 있을 때 이 테이블 간 관계는 1:1 관계입니다.
+
+`@OneToMany`는 위 예처럼 일대일(1:1) 관계를 매핑할 때 사용하는 어노테이션으로, 하나의 엔티티가 한 개의 엔티티를 가질 수 있는 구조를 의미합니다.
+
+위 예로 가정하면, 하나의 사람(Person) 엔티티 관점에서 여권(Passport) 엔티티를 @OneToOne으로 매핑할 수 있는 것입니다.
+
+@OneToOne도 마찬가지로 @JoinColumn을 활용하여 단방향 매핑이 가능하며, mappedBy 속성을 활용하여 일대일 관계인 엔티티와 양방향으로 매핑이 가능합니다.
+
+<br>
+
+✅ 예시
+
+```java
+@Entity
+public class Person {
+    @Id @GeneratedValue
+    private Long id;
+
+    private String name;
+
+    @OneToOne
+    @JoinColumn(name = "passport_id") // Person 테이블에 passport_id 외래키 생성
+    private Passport passport;
+}
+
+@Entity
+public class Passport {
+    @Id @GeneratedValue
+    private Long id;
+
+    private String passportNumber;
+
+    @OneToOne(mappedBy = "passport")
+    private Person person;
+}
+```
+
 ### ✏️ Lombok 라이브러리 간단 정리
 
 Lombok 라이브러리는
